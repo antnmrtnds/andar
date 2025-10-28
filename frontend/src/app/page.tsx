@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import Copy from '@/components/Copy';
 import { PropertyList } from '@/components/PropertyList';
+import Newsletter from '@/components/Newsletter';
 import { Property } from '@/types/property';
 
 // Mock properties data
@@ -162,6 +163,7 @@ export default function Home() {
       <Hero />
       <Copy />
       <PropertyList properties={mockProperties} />
+      <Newsletter />
     </main>
   )
 }
