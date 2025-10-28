@@ -1,5 +1,9 @@
-import React from 'react'
-import { Property } from '../types'
+'use client'
+
+import React, { useState } from 'react'
+import { Property } from '../types/property'
+import { PropertyCard } from './PropertyCard'
+import styles from './PropertyList.module.css'
 
 interface PropertyListProps {
   properties: Property[]
@@ -14,18 +18,21 @@ export const PropertyList: React.FC<PropertyListProps> = ({
   loading = false,
   error
 }) => {
+  const [showAll, setShowAll] = useState(false)
+  const displayProperties = showAll ? properties : properties.slice(0, 6)
+
   if (loading) {
     return (
-      <div className="property-list loading">
-        <div className="loading-spinner">Loading properties...</div>
+      <div className={styles.container}>
+        <div className={styles.loading}>Loading properties...</div>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="property-list error">
-        <div className="error-message">
+      <div className={styles.container}>
+        <div className={styles.error}>
           <h3>Error loading properties</h3>
           <p>{error}</p>
         </div>
@@ -35,8 +42,8 @@ export const PropertyList: React.FC<PropertyListProps> = ({
 
   if (properties.length === 0) {
     return (
-      <div className="property-list empty">
-        <div className="empty-message">
+      <div className={styles.container}>
+        <div className={styles.empty}>
           <h3>No properties found</h3>
           <p>Try adjusting your search criteria.</p>
         </div>
@@ -45,9 +52,9 @@ export const PropertyList: React.FC<PropertyListProps> = ({
   }
 
   return (
-    <div className="property-list">
-      <div className="property-grid">
-        {properties.map((property) => (
+    <div className={styles.container}>
+      <div className={styles.grid}>
+        {displayProperties.map((property) => (
           <PropertyCard
             key={property.id}
             property={property}
@@ -55,11 +62,15 @@ export const PropertyList: React.FC<PropertyListProps> = ({
           />
         ))}
       </div>
+      {properties.length > 6 && !showAll && (
+        <button 
+          className={styles.loadMoreButton}
+          onClick={() => setShowAll(true)}
+        >
+          Ver mais destaques
+        </button>
+      )}
     </div>
   )
 }
-
-// Import PropertyCard component
-import { PropertyCard } from './PropertyCard'
-
 

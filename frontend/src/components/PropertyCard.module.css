@@ -1,0 +1,246 @@
+/* Card Container */
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.card:hover {
+  opacity: 0.9;
+}
+
+/* Image Container */
+.imageContainer {
+  display: inline-grid;
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
+  line-height: 0;
+  place-items: start;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 320px;
+}
+
+.image {
+  grid-area: 1 / 1;
+  background: var(--extra-light-gray);
+  height: 373px;
+  width: 100%;
+  max-width: 320px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.placeholderImage {
+  width: 100%;
+  height: 100%;
+  background: var(--extra-light-gray);
+}
+
+/* Photo Counter Icon Badge */
+.icon {
+  grid-area: 1 / 1;
+  box-sizing: border-box;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 4px 8px;
+  z-index: 2;
+}
+
+.iconContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.iconImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.iconImage svg {
+  width: 100%;
+  height: 100%;
+}
+
+.counterText {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-medium);
+  line-height: normal;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: white;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Caption Section */
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  height: 135px;
+  align-items: flex-start;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.captionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-medium);
+  line-height: normal;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  color: var(--dark-gray);
+  font-size: var(--fontsize-headings-h3);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.location {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-regular);
+  line-height: normal;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  font-size: var(--fontsize-body-md);
+  color: var(--medium-gray);
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Features Info */
+.info {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  max-width: 238px;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  gap: var(--sizes-spacing-sp-8);
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.featureIcon {
+  position: relative;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featureIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.featureText {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-regular);
+  line-height: normal;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  font-size: var(--fontsize-body-sm);
+  color: var(--medium-gray);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.price {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-medium);
+  line-height: var(--lineheight-body);
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  color: var(--dark-gray);
+  font-size: var(--fontsize-headings-h3);
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .image {
+    height: 280px;
+  }
+
+  .caption {
+    height: auto;
+  }
+
+  .info {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image {
+    height: 240px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .location {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+}
+

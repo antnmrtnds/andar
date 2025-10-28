@@ -1,0 +1,25 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cardWrapper {
+  max-width: 320px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+

@@ -1,5 +1,12 @@
 import type { Metadata } from 'next'
+import { Work_Sans } from 'next/font/google'
 import './globals.css'
+
+const workSans = Work_Sans({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-work-sans',
+})
 
 export const metadata: Metadata = {
   title: 'Real Estate Investment Platform',
@@ -13,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={workSans.className}>{children}</body>
     </html>
   )
 }
