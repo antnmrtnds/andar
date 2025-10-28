@@ -213,7 +213,19 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .imageContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
   .image {
+    width: 100%;
+    max-width: 100%;
     height: 280px;
   }
 
@@ -227,7 +239,19 @@
 }
 
 @media (max-width: 480px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .imageContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
   .image {
+    width: 100%;
+    max-width: 100%;
     height: 240px;
   }
 

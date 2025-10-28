@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero';
 import Copy from '@/components/Copy';
+import PropertyFilter from '@/components/PropertyFilter';
 import { PropertyList } from '@/components/PropertyList';
 import Newsletter from '@/components/Newsletter';
 import { Property } from '@/types/property';
@@ -162,6 +163,7 @@ export default function Home() {
     <main>
       <Hero />
       <Copy />
+      <PropertyFilter />
       <PropertyList properties={mockProperties} />
       <Newsletter />
     </main>

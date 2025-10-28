@@ -130,7 +130,7 @@
   .grid {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 40px;
     align-items: center;
     height: auto;
     width: 100%;

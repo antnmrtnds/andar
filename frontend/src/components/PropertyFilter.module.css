@@ -1,0 +1,117 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1040px;
+}
+
+.title {
+  font-family: var(--font-family-inter);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: normal;
+  color: #000000;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.filterBar {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  background-color: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-medium);
+  font-size: 14px;
+  line-height: 24px;
+  color: #777777;
+  white-space: nowrap;
+}
+
+.filterButton:hover {
+  background-color: #f5f5f5;
+}
+
+.filterButton.active {
+  background-color: #ebebeb;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .content {
+    max-width: 720px;
+  }
+  
+  .title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    max-width: 346px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+
+  .filterBar {
+    gap: 10px;
+  }
+
+  .filterButton {
+    font-size: 13px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+
+  .filterBar {
+    gap: 8px;
+  }
+
+  .filterButton {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
