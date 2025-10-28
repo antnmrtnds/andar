@@ -1,0 +1,16 @@
+{
+  "name": "real-estate-platform-tests",
+  "version": "1.0.0",
+  "description": "Test configuration for Real Estate Investment Platform",
+  "scripts": {
+    "test": "echo 'Run tests from root directory with: npm run test'",
+    "test:frontend": "cd frontend && npm test",
+    "test:backend": "cd backend && npm test"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.14"
+  }
+}
+
+
