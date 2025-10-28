@@ -77,8 +77,12 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 40px 20px;
+  }
+
   .content {
-    max-width: 346px;
+    max-width: 600px;
   }
   
   .title {
@@ -96,11 +100,6 @@
 }
 
 @media (max-width: 480px) {
-  .content {
-    max-width: 100%;
-    padding: 0 20px;
-  }
-  
   .title {
     font-size: 18px;
   }

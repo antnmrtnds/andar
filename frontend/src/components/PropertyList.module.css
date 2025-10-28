@@ -123,40 +123,27 @@
 @media (max-width: 768px) {
   .container {
     gap: 16px;
-    padding-bottom: 52px;
-    padding-top: 16px;
+    padding: 16px 20px 52px 20px;
   }
 
   .grid {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    align-items: center;
+    align-items: stretch;
     height: auto;
     width: 100%;
-    max-width: 346px;
+    max-width: 600px;
   }
 
   .loadMoreButton {
     padding: 16px 48px;
     width: 100%;
-    max-width: 346px;
+    max-width: 600px;
   }
 
   .loadMoreButton p {
     font-size: 16px;
-  }
-}
-
-/* Responsive Design - Small Mobile */
-@media (max-width: 480px) {
-  .grid {
-    max-width: 100%;
-    padding: 0 20px;
-  }
-
-  .loadMoreButton {
-    max-width: calc(100% - 40px);
   }
 }
 
