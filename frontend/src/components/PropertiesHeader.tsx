@@ -69,7 +69,7 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            <Menu size={24} color="black" />
+            <Menu size={24} color="var(--dark-gray)" />
           </button>
         </div>
 
@@ -93,7 +93,7 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
             </button>
           </div>
           <a href="/mapa" className={styles.verMapa}>
-            <MapPin size={20} />
+            <MapPin size={16} />
             <span>Ver Mapa</span>
           </a>
         </div>

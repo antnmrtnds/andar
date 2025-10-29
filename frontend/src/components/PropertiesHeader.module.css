@@ -166,7 +166,9 @@
 }
 
 .menuButton:hover {
-  color: var(--color-text-headings-highlight);
+  color: var(--medium-gray);
+  transition: color 0.2s;
+  cursor: pointer;
 }
 
 /* Filter Bar Section */
@@ -223,24 +225,25 @@
   gap: 5px;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
-  border-radius: 10px;
   text-decoration: none;
   transition: background-color 0.2s;
   flex-shrink: 0;
+  color: var(--dark-gray);
+  font-family: 'Work Sans', sans-serif;
 }
 
 .verMapa span {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  color: #303030;
   white-space: nowrap;
 }
 
 .verMapa:hover {
-  background-color: #e3e3e3;
+  color: var(--medium-gray);
+  transition: color 0.2s;
+  cursor: pointer;
 }
 
 /* Hamburger Button */
@@ -318,56 +321,8 @@
   }
 }
 
-/* Narrow tablet - 750px and below */
+/* Mobile - 750px and below */
 @media (max-width: 750px) {
-  .headerTop {
-    padding: 0 40px;
-    gap: 8px;
-  }
-  
-  .titleAndSearch {
-    gap: 8px;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    flex: 1;
-  }
-  
-  .title {
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-  
-  .searchBarContainer {
-    flex: 1 1 auto; /* Allow growth and shrinkage */
-    min-width: 100px; /* Very small minimum for tight spaces */
-    max-width: 100%; /* Override the 512px constraint */
-  }
-  
-  .hamburgerButton {
-    flex-shrink: 0;
-  }
-  
-  .searchBar {
-    min-width: 100px; /* Allow the search bar itself to shrink */
-  }
-  
-  .filtrosText {
-    display: none; /* Hide "filtros" text to save space */
-  }
-  
-  .filtrosButton {
-    padding-left: 0;
-    min-width: 0;
-    gap: 0;
-  }
-  
-  .searchActions {
-    min-width: 56px; /* Just the search button width */
-    gap: 0;
-  }
-}
-
-/* Mobile - 768px and below */
-@media (max-width: 768px) {
   .header {
     gap: 0;
   }
@@ -376,36 +331,49 @@
     gap: 0;
   }
   
+  /* Row 1: Title (left) | Hamburger (right) */
+  /* Row 2: Search bar (full width) */
   .headerTop {
     height: auto;
-    padding: 32px 40px 8px 40px;
+    padding: 32px 40px 16px 40px;
     flex-wrap: wrap;
-    gap: 0;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .titleAndSearch {
-    width: 100%;
-    gap: 0;
-    flex-wrap: wrap;
-    flex: none;
+    /* Use display: contents to unwrap children */
+    display: contents;
   }
   
+  /* First row - Title on left */
   .title {
-    flex: 1;
-    min-width: 0;
+    order: 1;
+    flex: 0 0 auto;
+    width: auto;
+    padding-bottom: 16px;
   }
   
+  /* First row - Hamburger on right */
   .hamburgerButton {
-    flex-shrink: 0;
-    margin-left: 0;
+    order: 2;
+    flex: 0 0 auto;
+    margin-left: auto;
+    padding-bottom: 16px;
   }
   
+  /* Second row - Search bar full width */
   .searchBarContainer {
-    order: 3; /* Move to next row */
+    order: 3;
+    flex: 1 1 100%;
     width: 100%;
     max-width: 100%;
-    margin-top: 16px;
-    min-width: 0;
+    height: 48px;
+  }
+  
+  .searchBar {
+    max-width: 100%;
   }
   
   /* Restore filtros text on mobile since search bar gets full row */
