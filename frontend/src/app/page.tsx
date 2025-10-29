@@ -3,6 +3,8 @@ import Copy from '@/components/Copy';
 import PropertyFilter from '@/components/PropertyFilter';
 import { PropertyList } from '@/components/PropertyList';
 import Newsletter from '@/components/Newsletter';
+import Newsletter2 from '@/components/Newsletter2';
+import Footer from '@/components/Footer';
 import { Property } from '@/types/property';
 
 // Mock properties data
@@ -166,6 +168,8 @@ export default function Home() {
       <PropertyFilter />
       <PropertyList properties={mockProperties} />
       <Newsletter />
+      <Newsletter2 />
+      <Footer />
     </main>
   )
 }

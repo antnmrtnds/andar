@@ -64,7 +64,7 @@
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: none;
   padding: 4px 8px;
   z-index: 2;
 }

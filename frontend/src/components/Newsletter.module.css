@@ -95,31 +95,48 @@
   margin: 0;
 }
 
-/* Input Container */
-.inputContainer {
+/* Search Bar */
+.searchBar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0;
+  height: 48px;
   max-width: 512px;
-  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  height: 48px;
+  background-color: var(--white);
+  border: 1px solid var(--extra-light-gray, #e3e3e3);
+  border-right: none;
+  padding-left: 24px;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  box-sizing: border-box;
 }
 
 .input {
   flex: 1;
-  height: 56px;
-  padding: 0 24px;
-  font-family: var(--font-family-inter);
-  font-weight: var(--fontweight-regular);
-  font-size: 16px;
-  color: #1a1a1a;
-  background-color: var(--white);
+  height: 100%;
+  font-family: var(--font-family-work-sans, 'Work Sans', sans-serif);
+  font-weight: var(--fontweight-regular, 400);
+  font-size: var(--fontsize-body-sm, 12px);
+  color: var(--medium-gray, #898989);
   border: none;
   outline: none;
+  background: transparent;
+  line-height: normal;
+  min-width: 0;
 }
 
 .input::placeholder {
-  color: var(--medium-gray);
+  color: var(--medium-gray, #898989);
 }
 
 .input:focus {
@@ -130,13 +147,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  background-color: var(--button-blue);
-  border: none;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background-color: var(--button-blue, #407cff);
+  border: 1px solid var(--button-blue, #407cff);
   outline: none;
   cursor: pointer;
   padding: 0;
+  margin: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -145,6 +164,13 @@
 
 .submitButton:hover {
   background-color: #2d6aff;
+}
+
+.buttonIcon {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
 }
 
 /* Responsive Design - Tablet */
@@ -195,17 +221,17 @@
     font-size: 18px;
   }
 
-  .inputContainer {
+  .searchBar {
     max-width: 100%;
   }
 
   .input,
   .submitButton {
-    height: 56px;
+    height: 48px;
   }
 
   .submitButton {
-    width: 56px;
+    width: 48px;
   }
 }
 
@@ -234,11 +260,11 @@
 
   .input,
   .submitButton {
-    height: 56px;
+    height: 48px;
   }
 
   .submitButton {
-    width: 56px;
+    width: 48px;
   }
 }
 

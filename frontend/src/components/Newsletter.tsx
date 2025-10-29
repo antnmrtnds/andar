@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
 import styles from './Newsletter.module.css';
 
 const imgNewsletter = "http://localhost:3845/assets/aa54c2991bd98102f305f4d8b643dc1040a07497.png";
+const imgMag = "http://localhost:3845/assets/112c1332c4775280b8fad7737667f099d76b4a1a.svg";
 
 interface NewsletterProps {
   className?: string;
@@ -49,22 +49,24 @@ export const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
           <p className={styles.formLabel}>
             Receba todas as ofertas no seu email
           </p>
-          <div className={styles.inputContainer}>
-            <input
-              type="email"
-              className={styles.input}
-              placeholder="Escreva o seu e-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button 
-              type="submit" 
-              className={styles.submitButton}
-              aria-label="Subscribe"
-            >
-              <ArrowRight size={20} color="white" strokeWidth={2.5} />
-            </button>
+          <div className={styles.searchBar}>
+            <div className={styles.inputWrapper}>
+              <input
+                type="email"
+                className={styles.input}
+                placeholder="Escreva o seu e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <button 
+                type="submit" 
+                className={styles.submitButton}
+                aria-label="Subscribe"
+              >
+                <img alt="" className={styles.buttonIcon} src={imgMag} />
+              </button>
+            </div>
           </div>
         </form>
       </div>
