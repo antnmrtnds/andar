@@ -1,0 +1,271 @@
+/* Stats Container */
+.container {
+  background-color: var(--really-light-gray);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Title */
+.title {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  line-height: 1.2;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: black;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+/* Highlight Section */
+.highlight {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  line-height: 1.3;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.highlightNumber {
+  color: var(--button-blue);
+  font-size: 20px;
+}
+
+.highlightLabel {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-regular);
+  font-size: 14px;
+  color: black;
+}
+
+/* Stats List */
+.statsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Individual Stat Item */
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Percentage */
+.percentage {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-medium);
+  line-height: normal;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: black;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Progress Bar Container */
+.progressBarContainer {
+  height: 6px;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Progress Bar Fill */
+.progressBar {
+  height: 100%;
+  background-color: var(--button-blue);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Stat Info */
+.statInfo {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-medium);
+  line-height: 1.4;
+  font-style: normal;
+  position: relative;
+  color: var(--dark-gray);
+  width: 100%;
+}
+
+.statTitle {
+  font-size: 16px;
+  font-weight: var(--fontweight-medium);
+  line-height: 1.3;
+  margin: 0 0 8px 0;
+  word-wrap: break-word;
+}
+
+.statDescription {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-regular);
+  font-size: var(--fontsize-body-md);
+  line-height: 1.5;
+  color: var(--dark-gray);
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* Disclaimer Section */
+.disclaimer {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-medium);
+  line-height: normal;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  color: black;
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.disclaimerTitle {
+  font-size: 10px;
+  font-weight: var(--fontweight-medium);
+  margin: 0 0 4px 0;
+}
+
+.disclaimerText {
+  font-family: var(--font-family-inter);
+  font-weight: var(--fontweight-regular);
+  font-size: 8px;
+  line-height: 1.4;
+  color: black;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .highlightNumber {
+    font-size: 18px;
+  }
+
+  .highlightLabel {
+    font-size: 14px;
+  }
+
+  .statTitle {
+    font-size: 16px;
+  }
+
+  .statDescription {
+    font-size: 14px;
+  }
+
+  .percentage {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .statItem {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .highlightNumber {
+    font-size: 18px;
+  }
+
+  .highlightLabel {
+    font-size: 134x;
+  }
+
+  .percentage {
+    font-size: 18px;
+  }
+
+  .statTitle {
+    font-size: 16px;
+  }
+
+  .statDescription {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .highlightNumber {
+    font-size: 16px;
+  }
+
+  .highlightLabel {
+    font-size: 12px;
+  }
+
+  .highlight {
+    white-space: normal;
+  }
+
+  .percentage {
+    font-size: 16px;
+  }
+
+  .statTitle {
+    font-size: 14px;
+  }
+
+  .statDescription {
+    font-size: 10px;
+  }
+
+  .disclaimerTitle {
+    font-size: 9px;
+  }
+
+  .disclaimerText {
+    font-size: 7px;
+  }
+}
+

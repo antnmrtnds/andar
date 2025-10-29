@@ -1,0 +1,80 @@
+/* Main Container */
+.container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: 32px 200px;
+  background-color: var(--white);
+}
+
+/* Content Wrapper */
+.content {
+  box-sizing: border-box;
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+/* Text Section */
+.textSection {
+  flex: 2;
+  min-width: 0;
+}
+
+/* Stats Section */
+.statsSection {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 80px 100px 40px;
+  }
+
+  .content {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 60px 60px 40px;
+  }
+
+  .content {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 20px 30px;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .statsSection {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 16px 20px;
+  }
+
+  .content {
+    gap: 30px;
+  }
+}
+

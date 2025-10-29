@@ -1,8 +1,12 @@
+import { PropertiesHeader } from '@/components/PropertiesHeader';
+
 export default function LagosPage() {
   return (
     <div>
-      <h1>Propriedades em Lagos</h1>
-      {/* Lagos locality properties - to be implemented */}
+      <PropertiesHeader />
+      <main style={{ padding: '40px' }}>
+        {/* Lagos locality properties - to be implemented */}
+      </main>
     </div>
   );
 }

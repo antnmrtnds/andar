@@ -1,0 +1,140 @@
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 687px;
+}
+
+/* Title Section */
+.titleSection {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.mainTitle {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  line-height: normal;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  color: var(--dark-gray);
+  font-size: var(--fontsize-headings-h1);
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Introduction Section */
+.introSection {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.introduction {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-regular);
+  line-height: normal;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  color: var(--dark-gray);
+  font-size: var(--fontsize-body-md);
+  flex: 1;
+  margin: 0;
+}
+
+/* Content Sections */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.subtitle {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  line-height: normal;
+  font-style: normal;
+  color: var(--dark-gray);
+  font-size: 20px;
+  margin: 0;
+  flex: 1;
+}
+
+.paragraph {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-regular);
+  line-height: normal;
+  font-style: normal;
+  color: var(--dark-gray);
+  font-size: var(--fontsize-body-md);
+  margin: 0;
+  flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    gap: 16px;
+  }
+
+  .mainTitle {
+    font-size: 32px;
+    white-space: normal;
+  }
+
+  .introduction {
+    font-size: 14px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .paragraph {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    gap: 12px;
+  }
+
+  .mainTitle {
+    font-size: 28px;
+  }
+
+  .introduction {
+    font-size: 14px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .paragraph {
+    font-size: 14px;
+  }
+}
+

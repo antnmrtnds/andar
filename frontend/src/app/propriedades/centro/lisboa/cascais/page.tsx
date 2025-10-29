@@ -1,8 +1,12 @@
+import { PropertiesHeader } from '@/components/PropertiesHeader';
+
 export default function CascaisPage() {
   return (
     <div>
-      <h1>Propriedades em Cascais</h1>
-      {/* Cascais locality properties - to be implemented */}
+      <PropertiesHeader />
+      <main style={{ padding: '40px' }}>
+        {/* Cascais locality properties - to be implemented */}
+      </main>
     </div>
   );
 }

@@ -1,8 +1,12 @@
+import { PropertiesHeader } from '@/components/PropertiesHeader';
+
 export default function TaviraPage() {
   return (
     <div>
-      <h1>Propriedades em Tavira</h1>
-      {/* Tavira locality properties - to be implemented */}
+      <PropertiesHeader />
+      <main style={{ padding: '40px' }}>
+        {/* Tavira locality properties - to be implemented */}
+      </main>
     </div>
   );
 }

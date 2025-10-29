@@ -1,8 +1,12 @@
+import { PropertiesHeader } from '@/components/PropertiesHeader';
+
 export default function AlbufeiraPage() {
   return (
     <div>
-      <h1>Propriedades em Albufeira</h1>
-      {/* Albufeira locality properties - to be implemented */}
+      <PropertiesHeader />
+      <main style={{ padding: '40px' }}>
+        {/* Albufeira locality properties - to be implemented */}
+      </main>
     </div>
   );
 }
