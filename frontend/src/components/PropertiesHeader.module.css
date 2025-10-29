@@ -32,9 +32,8 @@
   display: flex;
   gap: 24px;
   align-items: center;
+  justify-content: flex-start;
   flex: 1;
-  min-height: 1px;
-  min-width: 1px;
 }
 
 .title {
@@ -70,6 +69,7 @@
   padding-left: 24px;
   min-height: 1px;
   min-width: 1px;
+  max-width: 440px;
 }
 
 .searchInput {
@@ -144,7 +144,7 @@
   height: 40px;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 16px;
   padding-right: 0px;
 }
 
@@ -157,7 +157,7 @@
   padding: 8px 0px 8px 0px;
   font-family: 'Work Sans', sans-serif;
   font-weight: var(--fontweight-medium);
-  font-size: var(--fontsize-body-md);
+  font-size: var(--fontsize-body-medium);
   line-height: 24px;
   color: var(--dark-gray);
   white-space: nowrap;
@@ -171,13 +171,15 @@
 
 /* Filter Bar Section */
 .filterBar {
-  background: var(--really-light-gray);
+  background: #f4f4f4;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   padding: 16px 40px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .filterButtons {
@@ -219,88 +221,247 @@
   box-sizing: border-box;
   display: flex;
   gap: 5px;
-  font-family: 'Work Sans', sans-serif;
   align-items: center;
   justify-content: center;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
   transition: background-color 0.2s;
+  flex-shrink: 0;
 }
 
 .verMapa span {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: var(--fontweight-medium);
-  font-size: var(--fontsize-body-large);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
   line-height: 24px;
-  color: var(--dark-gray);
+  color: #303030;
   white-space: nowrap;
 }
 
 .verMapa:hover {
-  color: var(--color-text-headings-highlight);
+  background-color: #e3e3e3;
 }
 
-.verMapa svg {
-  width: 16px;
-  height: 16px;
+/* Hamburger Button */
+.hamburgerButton {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
 }
 
-.verMapa span:hover {
-  color: var(--color-text-headings-highlight);
-}
 /* Responsive Design */
+
+/* Tablet - 1024px and below */
 @media (max-width: 1024px) {
+  /* Show hamburger, hide desktop menu */
+  .hamburgerButton {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  
+  .headerMenu {
+    display: none;
+  }
+  
   .headerTop {
     padding: 0 40px;
+    gap: 16px;
   }
   
   .filterBar {
     padding: 16px 40px;
+    height: auto;
+    min-height: 67px;
   }
   
   .titleAndSearch {
-    gap: 16px;
+    gap: 24px;
+    flex: 1;
+  }
+  
+  .title {
+    flex-shrink: 0;
   }
   
   .searchBarContainer {
-    max-width: 400px;
+    flex: 1;
+    min-width: 0; /* Allow flex item to shrink below content size */
+  }
+  
+  .searchInput {
+    min-width: 0; /* Allow input to shrink and clip text */
+  }
+  
+  .searchActions {
+    flex-shrink: 0; /* Keep filters and button always visible */
   }
 }
 
-@media (max-width: 768px) {
+/* Keep Ver Mapa visible on tablet */
+
+/* Medium tablet - 800px and below */
+@media (max-width: 800px) {
+  .titleAndSearch {
+    gap: 24px;
+  }
+  
+  .searchBarContainer {
+    min-width: 150px; /* Ensure minimum usable width but allow more flexibility */
+  }
+}
+
+/* Narrow tablet - 750px and below */
+@media (max-width: 750px) {
   .headerTop {
-    flex-direction: column;
+    padding: 0 40px;
+    gap: 8px;
+  }
+  
+  .titleAndSearch {
+    gap: 8px;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    flex: 1;
+  }
+  
+  .title {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  
+  .searchBarContainer {
+    flex: 1 1 auto; /* Allow growth and shrinkage */
+    min-width: 100px; /* Very small minimum for tight spaces */
+    max-width: 100%; /* Override the 512px constraint */
+  }
+  
+  .hamburgerButton {
+    flex-shrink: 0;
+  }
+  
+  .searchBar {
+    min-width: 100px; /* Allow the search bar itself to shrink */
+  }
+  
+  .filtrosText {
+    display: none; /* Hide "filtros" text to save space */
+  }
+  
+  .filtrosButton {
+    padding-left: 0;
+    min-width: 0;
+    gap: 0;
+  }
+  
+  .searchActions {
+    min-width: 56px; /* Just the search button width */
+    gap: 0;
+  }
+}
+
+/* Mobile - 768px and below */
+@media (max-width: 768px) {
+  .header {
+    gap: 0;
+  }
+  
+  .desktop {
+    gap: 0;
+  }
+  
+  .headerTop {
     height: auto;
-    padding: 16px 20px;
-    gap: 16px;
+    padding: 32px 40px 8px 40px;
+    flex-wrap: wrap;
+    gap: 0;
   }
   
   .titleAndSearch {
     width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    gap: 0;
+    flex-wrap: wrap;
+    flex: none;
+  }
+  
+  .title {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .hamburgerButton {
+    flex-shrink: 0;
+    margin-left: 0;
   }
   
   .searchBarContainer {
-    max-width: 100%;
+    order: 3; /* Move to next row */
     width: 100%;
+    max-width: 100%;
+    margin-top: 16px;
+    min-width: 0;
   }
   
-  .headerMenu {
-    width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    height: auto;
+  /* Restore filtros text on mobile since search bar gets full row */
+  .filtrosText {
+    display: block;
+  }
+  
+  .filtrosButton {
+    padding-left: 16px;
+  }
+  
+  .searchActions {
+    min-width: 112px;
   }
   
   .filterBar {
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 16px 20px;
+    padding: 16px 40px;
+    background: #f4f4f4;
+    min-height: auto;
+    flex-wrap: wrap;
   }
   
   .filterButtons {
+    flex: 1 1 100%;
     width: 100%;
+  }
+  
+  .verMapa {
+    flex: 0 0 auto;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small mobile - 480px and below */
+@media (max-width: 480px) {
+  .headerTop {
+    padding: 24px 20px 8px 20px;
+  }
+  
+  .filterBar {
+    padding: 12px 20px;
+    gap: 12px;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .filterButtons {
+    gap: 12px;
+  }
+  
+  .filterButton {
+    font-size: 11px;
+    padding: 4px 12px;
   }
   
   .verMapa {

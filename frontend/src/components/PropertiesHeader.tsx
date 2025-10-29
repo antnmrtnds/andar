@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { MapPin, Search } from 'lucide-react'
+import { MapPin, Search, Menu } from 'lucide-react'
 import styles from './PropertiesHeader.module.css'
 
 interface PropertiesHeaderProps {
@@ -12,11 +12,16 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
   title = 'Andar'
 }) => {
   const [searchQuery, setSearchQuery] = useState('')
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle search logic here
     console.log('Search query:', searchQuery)
+  }
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
   }
 
   return (
@@ -46,6 +51,7 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
               </div>
             </form>
           </div>
+          {/* Desktop Navigation Menu */}
           <nav className={styles.headerMenu}>
             <a href="/empreendimentos" className={styles.menuButton}>
               Empreendimentos
@@ -57,6 +63,14 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
               Profissionais
             </a>
           </nav>
+          {/* Hamburger Menu Button */}
+          <button 
+            className={styles.hamburgerButton}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <Menu size={24} color="black" />
+          </button>
         </div>
 
         {/* Filter Bar Section */}
