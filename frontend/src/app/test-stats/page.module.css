@@ -13,7 +13,7 @@
 }
 
 .pageTitle {
-  font-family: var(--font-family-inter);
+  font-family: var(--font-family-work-sans);
   font-size: var(--fontsize-headings-h1);
   font-weight: var(--fontweight-semibold);
   color: var(--dark-gray);
@@ -39,7 +39,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-family-inter);
+  font-family: var(--font-family-work-sans);
   font-size: 24px;
   font-weight: var(--fontweight-medium);
   color: var(--dark-gray);

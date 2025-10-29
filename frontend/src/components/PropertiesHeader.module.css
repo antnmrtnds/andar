@@ -194,6 +194,10 @@
   min-width: 1px;
 }
 
+.filterButtonWrapper {
+  position: relative;
+}
+
 .filterButton {
   background: #dadada;
   border: none;
@@ -216,6 +220,269 @@
 .filterButton:hover {
   background: #c8c8c8;
   color: var(--dark-gray);
+}
+
+.filterButtonActive {
+  background: #407cff;
+  color: white;
+}
+
+.filterButtonActive:hover {
+  background: #3366cc;
+  color: white;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 1000;
+  min-width: 455px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownContent {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Top Section */
+.dropdownTopSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.dropdownTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dropdownTitleText {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--dark-gray);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  opacity: 0.7;
+}
+
+/* Property Types */
+.propertyTypes {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.propertyTypeButton {
+  border: 0.7px solid var(--medium-gray);
+  background: transparent;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--medium-gray);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.propertyTypeButton:hover {
+  border-color: var(--button-blue);
+  color: var(--button-blue);
+}
+
+.propertyTypeButtonActive {
+  border-color: var(--button-blue);
+  color: var(--button-blue);
+}
+
+/* Separator */
+.dropdownSeparator {
+  width: 100%;
+  height: 0;
+  border-top: 0.3px solid var(--extra-light-gray);
+}
+
+/* Bottom Section */
+.dropdownBottomSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.clearButton {
+  background: transparent;
+  border: none;
+font-family: var(--font-family-work-sans);
+font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--dark-gray);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.clearButton:hover {
+  opacity: 0.7;
+}
+
+.applyButton {
+  background: var(--button-blue);
+  border: none;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: white;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.applyButton:hover {
+  background: var(--button-blue);
+}
+
+/* Number Options (for Quartos, WC's, Estacionamento) */
+.numberOptions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.numberButton {
+  border: 0.7px solid var(--medium-gray);
+  background: transparent;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  width: 34px;
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--medium-gray);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.numberButton:hover {
+  border-color: var(--button-blue);
+  color: var(--button-blue);
+}
+
+.numberButtonActive {
+  border-color: var(--button-blue);
+  color: var(--button-blue);
+}
+
+/* Price Inputs */
+.priceInputs {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+.priceInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.priceLabel {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--dark-gray);
+  white-space: nowrap;
+}
+
+.priceInput {
+  border: 0.7px solid var(--medium-gray);
+  background: transparent;
+  box-sizing: border-box;
+  padding: 5px 25px;
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--medium-gray);
+  white-space: nowrap;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.priceInput:focus {
+  border-color: var(--button-blue);
+  color: var(--dark-gray);
+}
+
+.priceInput::placeholder {
+  color: var(--medium-gray);
+}
+
+.priceSeparator {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--medium-gray);
+  padding-bottom: 8px;
+  flex-shrink: 0;
 }
 
 /* Ver Mapa Link */
@@ -435,6 +702,68 @@
   .verMapa {
     width: 100%;
     justify-content: center;
+  }
+  
+  /* Dropdown responsive */
+  .dropdown {
+    min-width: calc(100vw - 40px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .dropdownContent {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .propertyTypes {
+    gap: 8px;
+  }
+  
+  .propertyTypeButton {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  
+  .numberOptions {
+    gap: 8px;
+  }
+  
+  .numberButton {
+    font-size: 12px;
+    padding: 4px 8px;
+    width: 30px;
+  }
+  
+  .priceInputs {
+    gap: 8px;
+  }
+  
+  .priceInput {
+    padding: 4px 15px;
+    font-size: 12px;
+  }
+  
+  .priceLabel {
+    font-size: 12px;
+  }
+  
+  .priceSeparator {
+    font-size: 12px;
+  }
+}
+
+/* Additional responsive adjustments for dropdown */
+@media (max-width: 750px) {
+  .dropdown {
+    min-width: 300px;
+    max-width: calc(100vw - 80px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .dropdown {
+    min-width: 400px;
   }
 }
 
