@@ -239,7 +239,30 @@
   left: 0;
   z-index: 1000;
   min-width: 455px;
+  max-width: calc(100vw - 80px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop positioning - prevent left/right overflow */
+@media (min-width: 751px) {
+  /* First two buttons: align left */
+  .filterButtonWrapper:first-child .dropdown,
+  .filterButtonWrapper:nth-child(2) .dropdown {
+    left: 0;
+  }
+
+  /* Third button: slightly offset to center */
+  .filterButtonWrapper:nth-child(3) .dropdown {
+    left: auto;
+    right: auto;
+    transform: translateX(-33%);
+  }
+
+  /* Last buttons: align right to prevent right overflow */
+  .filterButtonWrapper:nth-child(n+4) .dropdown {
+    left: auto;
+    right: 0;
+  }
 }
 
 .dropdownContent {
@@ -249,6 +272,8 @@
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
 }
 
 /* Top Section */
@@ -299,6 +324,7 @@
   gap: 10px;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .propertyTypeButton {
@@ -394,6 +420,7 @@ font-weight: var(--fontweight-medium);
   gap: 10px;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .numberButton {
@@ -704,11 +731,16 @@ font-weight: var(--fontweight-medium);
     justify-content: center;
   }
   
-  /* Dropdown responsive */
-  .dropdown {
-    min-width: calc(100vw - 40px);
-    left: 50%;
-    transform: translateX(-50%);
+  /* Dropdown responsive - align left on extra small screens */
+  .filterButtonWrapper .dropdown,
+  .filterButtonWrapper:nth-child(n) .dropdown {
+    position: absolute !important;
+    left: 0 !important;
+    right: auto !important;
+    min-width: 200px !important;
+    max-width: calc(100vw - 40px) !important;
+    transform: none !important;
+    z-index: 1000 !important;
   }
   
   .dropdownContent {
@@ -736,12 +768,18 @@ font-weight: var(--fontweight-medium);
   }
   
   .priceInputs {
-    gap: 8px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  
+  .priceInputGroup {
+    min-width: 80px;
   }
   
   .priceInput {
-    padding: 4px 15px;
+    padding: 4px 12px;
     font-size: 12px;
+    min-width: 0;
   }
   
   .priceLabel {
@@ -750,20 +788,143 @@ font-weight: var(--fontweight-medium);
   
   .priceSeparator {
     font-size: 12px;
+    padding-bottom: 4px;
+  }
+  
+  .dropdownBottomSection {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .applyButton {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .clearButton {
+    font-size: 12px;
   }
 }
 
 /* Additional responsive adjustments for dropdown */
-@media (max-width: 750px) {
+@media (max-width: 1024px) {
   .dropdown {
-    min-width: 300px;
+    min-width: 350px;
     max-width: calc(100vw - 80px);
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 750px) {
+  .filterBar {
+    position: relative;
+  }
+  
+  .filterButtonWrapper {
+    position: relative;
+  }
+  
+  /* Override desktop positioning - align left and constrain */
+  .filterButtonWrapper .dropdown,
+  .filterButtonWrapper:nth-child(n) .dropdown {
+    position: absolute !important;
+    left: 0 !important;
+    right: auto !important;
+    min-width: 280px !important;
+    max-width: calc(100vw - 80px) !important;
+    transform: none !important;
+    z-index: 1000 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .filterButtonWrapper .dropdown,
+  .filterButtonWrapper:nth-child(n) .dropdown {
+    min-width: 250px !important;
+    max-width: calc(100vw - 60px) !important;
+  }
+}
+
+/* Mobile Filter Section - Appears below filter buttons on mobile */
+.mobileFilterSection {
+  display: none;
+  width: 100%;
+  background: white;
+  box-sizing: border-box;
+}
+
+.mobileFilterContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.mobileFilterTop {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.mobileFilterTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mobileFilterTitleText {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--dark-gray);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.mobileCloseButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobileCloseButton:hover {
+  opacity: 0.7;
+}
+
+.mobileFilterSeparator {
+  width: 100%;
+  height: 0;
+  border-top: 0.3px solid var(--extra-light-gray);
+}
+
+.mobileFilterBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Show mobile filter section below 768px and hide desktop dropdowns */
+@media (max-width: 767px) {
+  /* Hide desktop dropdowns on mobile */
   .dropdown {
-    min-width: 400px;
+    display: none !important;
+  }
+  
+  /* Show mobile filter section */
+  .mobileFilterSection {
+    display: block;
   }
 }
 

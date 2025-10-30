@@ -11,6 +11,8 @@ interface PropertiesHeaderProps {
 type PropertyType = 'Todos' | 'Apartamentos' | 'Vilas' | 'Penthouses'
 type NumberOption = 1 | 2 | 3 | 4 | '5+' | null
 
+type ActiveMobileFilter = 'propertyType' | 'quartos' | 'wcs' | 'estacionamento' | 'preco' | null
+
 export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({ 
   title = 'Andar'
 }) => {
@@ -38,6 +40,9 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
   const [precoMin, setPrecoMin] = useState('')
   const [precoMax, setPrecoMax] = useState('')
   
+  // Mobile filter state
+  const [activeMobileFilter, setActiveMobileFilter] = useState<ActiveMobileFilter>(null)
+  
   // Refs for dropdown menus
   const propertyTypeRef = useRef<HTMLDivElement>(null)
   const quartosRef = useRef<HTMLDivElement>(null)
@@ -55,9 +60,19 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
     setIsMenuOpen(!isMenuOpen)
   }
 
+  // Check if we're on mobile
+  const isMobile = () => {
+    if (typeof window === 'undefined') return false
+    return window.innerWidth < 768
+  }
+
   // Property Type Handlers
   const togglePropertyType = () => {
-    setIsPropertyTypeOpen(!isPropertyTypeOpen)
+    if (isMobile()) {
+      setActiveMobileFilter(activeMobileFilter === 'propertyType' ? null : 'propertyType')
+    } else {
+      setIsPropertyTypeOpen(!isPropertyTypeOpen)
+    }
   }
 
   const handlePropertyTypeSelect = (type: PropertyType) => {
@@ -66,6 +81,7 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
 
   const handlePropertyTypeApply = () => {
     setIsPropertyTypeOpen(false)
+    setActiveMobileFilter(null)
     console.log('Property Type filter applied:', selectedPropertyType)
   }
 
@@ -74,12 +90,21 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
   }
 
   // Quartos Handlers
+  const toggleQuartos = () => {
+    if (isMobile()) {
+      setActiveMobileFilter(activeMobileFilter === 'quartos' ? null : 'quartos')
+    } else {
+      setIsQuartosOpen(!isQuartosOpen)
+    }
+  }
+
   const handleQuartosSelect = (num: NumberOption) => {
     setSelectedQuartos(num)
   }
 
   const handleQuartosApply = () => {
     setIsQuartosOpen(false)
+    setActiveMobileFilter(null)
     console.log('Quartos filter applied:', selectedQuartos)
   }
 
@@ -88,12 +113,21 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
   }
 
   // WC's Handlers
+  const toggleWcs = () => {
+    if (isMobile()) {
+      setActiveMobileFilter(activeMobileFilter === 'wcs' ? null : 'wcs')
+    } else {
+      setIsWcsOpen(!isWcsOpen)
+    }
+  }
+
   const handleWcsSelect = (num: NumberOption) => {
     setSelectedWcs(num)
   }
 
   const handleWcsApply = () => {
     setIsWcsOpen(false)
+    setActiveMobileFilter(null)
     console.log('WCs filter applied:', selectedWcs)
   }
 
@@ -102,12 +136,21 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
   }
 
   // Estacionamento Handlers
+  const toggleEstacionamento = () => {
+    if (isMobile()) {
+      setActiveMobileFilter(activeMobileFilter === 'estacionamento' ? null : 'estacionamento')
+    } else {
+      setIsEstacionamentoOpen(!isEstacionamentoOpen)
+    }
+  }
+
   const handleEstacionamentoSelect = (num: NumberOption) => {
     setSelectedEstacionamento(num)
   }
 
   const handleEstacionamentoApply = () => {
     setIsEstacionamentoOpen(false)
+    setActiveMobileFilter(null)
     console.log('Estacionamento filter applied:', selectedEstacionamento)
   }
 
@@ -116,8 +159,17 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
   }
 
   // Preço Handlers
+  const togglePreco = () => {
+    if (isMobile()) {
+      setActiveMobileFilter(activeMobileFilter === 'preco' ? null : 'preco')
+    } else {
+      setIsPrecoOpen(!isPrecoOpen)
+    }
+  }
+
   const handlePrecoApply = () => {
     setIsPrecoOpen(false)
+    setActiveMobileFilter(null)
     console.log('Preço filter applied:', { min: precoMin, max: precoMax })
   }
 
@@ -207,7 +259,7 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
             {/* Tipo de Propriedade */}
             <div className={styles.filterButtonWrapper} ref={propertyTypeRef}>
               <button 
-                className={`${styles.filterButton} ${isPropertyTypeOpen ? styles.filterButtonActive : ''}`}
+                className={`${styles.filterButton} ${(isPropertyTypeOpen || activeMobileFilter === 'propertyType') ? styles.filterButtonActive : ''}`}
                 onClick={togglePropertyType}
               >
                 Tipo de Propriedade
@@ -263,8 +315,8 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
             {/* Quartos */}
             <div className={styles.filterButtonWrapper} ref={quartosRef}>
               <button 
-                className={`${styles.filterButton} ${isQuartosOpen ? styles.filterButtonActive : ''}`}
-                onClick={() => setIsQuartosOpen(!isQuartosOpen)}
+                className={`${styles.filterButton} ${(isQuartosOpen || activeMobileFilter === 'quartos') ? styles.filterButtonActive : ''}`}
+                onClick={toggleQuartos}
               >
                 Quartos
               </button>
@@ -319,8 +371,8 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
             {/* WC's */}
             <div className={styles.filterButtonWrapper} ref={wcsRef}>
               <button 
-                className={`${styles.filterButton} ${isWcsOpen ? styles.filterButtonActive : ''}`}
-                onClick={() => setIsWcsOpen(!isWcsOpen)}
+                className={`${styles.filterButton} ${(isWcsOpen || activeMobileFilter === 'wcs') ? styles.filterButtonActive : ''}`}
+                onClick={toggleWcs}
               >
                 WC's
               </button>
@@ -375,8 +427,8 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
             {/* Estacionamento */}
             <div className={styles.filterButtonWrapper} ref={estacionamentoRef}>
               <button 
-                className={`${styles.filterButton} ${isEstacionamentoOpen ? styles.filterButtonActive : ''}`}
-                onClick={() => setIsEstacionamentoOpen(!isEstacionamentoOpen)}
+                className={`${styles.filterButton} ${(isEstacionamentoOpen || activeMobileFilter === 'estacionamento') ? styles.filterButtonActive : ''}`}
+                onClick={toggleEstacionamento}
               >
                 Estacionamento
               </button>
@@ -431,8 +483,8 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
             {/* Preço */}
             <div className={styles.filterButtonWrapper} ref={precoRef}>
               <button 
-                className={`${styles.filterButton} ${isPrecoOpen ? styles.filterButtonActive : ''}`}
-                onClick={() => setIsPrecoOpen(!isPrecoOpen)}
+                className={`${styles.filterButton} ${(isPrecoOpen || activeMobileFilter === 'preco') ? styles.filterButtonActive : ''}`}
+                onClick={togglePreco}
               >
                 Preço
               </button>
@@ -499,6 +551,251 @@ export const PropertiesHeader: React.FC<PropertiesHeaderProps> = ({
             <span>Ver Mapa</span>
           </a>
         </div>
+
+        {/* Mobile Filter Section */}
+        {activeMobileFilter && (
+          <div className={styles.mobileFilterSection}>
+            {/* Property Type Filter Content */}
+            {activeMobileFilter === 'propertyType' && (
+              <div className={styles.mobileFilterContent}>
+                <div className={styles.mobileFilterTop}>
+                  <div className={styles.mobileFilterTitle}>
+                    <p className={styles.mobileFilterTitleText}>Tipo de Propriedade</p>
+                    <button 
+                      className={styles.mobileCloseButton}
+                      onClick={() => setActiveMobileFilter(null)}
+                      aria-label="Close"
+                    >
+                      <X size={24} strokeWidth={2} color="#303030" />
+                    </button>
+                  </div>
+                  <div className={styles.propertyTypes}>
+                    {(['Todos', 'Apartamentos', 'Vilas', 'Penthouses'] as PropertyType[]).map((type) => (
+                      <button
+                        key={type}
+                        className={`${styles.propertyTypeButton} ${
+                          selectedPropertyType === type ? styles.propertyTypeButtonActive : ''
+                        }`}
+                        onClick={() => handlePropertyTypeSelect(type)}
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className={styles.mobileFilterSeparator} />
+                <div className={styles.mobileFilterBottom}>
+                  <button 
+                    className={styles.clearButton}
+                    onClick={handlePropertyTypeClear}
+                  >
+                    Apagar
+                  </button>
+                  <button 
+                    className={styles.applyButton}
+                    onClick={handlePropertyTypeApply}
+                  >
+                    Aplicar
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Quartos Filter Content */}
+            {activeMobileFilter === 'quartos' && (
+              <div className={styles.mobileFilterContent}>
+                <div className={styles.mobileFilterTop}>
+                  <div className={styles.mobileFilterTitle}>
+                    <p className={styles.mobileFilterTitleText}>Quartos</p>
+                    <button 
+                      className={styles.mobileCloseButton}
+                      onClick={() => setActiveMobileFilter(null)}
+                      aria-label="Close"
+                    >
+                      <X size={24} strokeWidth={2} color="#303030" />
+                    </button>
+                  </div>
+                  <div className={styles.numberOptions}>
+                    {([1, 2, 3, 4, '5+'] as NumberOption[]).map((num) => (
+                      <button
+                        key={num}
+                        className={`${styles.numberButton} ${
+                          selectedQuartos === num ? styles.numberButtonActive : ''
+                        }`}
+                        onClick={() => handleQuartosSelect(num)}
+                      >
+                        {num}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className={styles.mobileFilterSeparator} />
+                <div className={styles.mobileFilterBottom}>
+                  <button 
+                    className={styles.clearButton}
+                    onClick={handleQuartosClear}
+                  >
+                    Apagar
+                  </button>
+                  <button 
+                    className={styles.applyButton}
+                    onClick={handleQuartosApply}
+                  >
+                    Aplicar
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* WC's Filter Content */}
+            {activeMobileFilter === 'wcs' && (
+              <div className={styles.mobileFilterContent}>
+                <div className={styles.mobileFilterTop}>
+                  <div className={styles.mobileFilterTitle}>
+                    <p className={styles.mobileFilterTitleText}>WC's</p>
+                    <button 
+                      className={styles.mobileCloseButton}
+                      onClick={() => setActiveMobileFilter(null)}
+                      aria-label="Close"
+                    >
+                      <X size={24} strokeWidth={2} color="#303030" />
+                    </button>
+                  </div>
+                  <div className={styles.numberOptions}>
+                    {([1, 2, 3, 4, '5+'] as NumberOption[]).map((num) => (
+                      <button
+                        key={num}
+                        className={`${styles.numberButton} ${
+                          selectedWcs === num ? styles.numberButtonActive : ''
+                        }`}
+                        onClick={() => handleWcsSelect(num)}
+                      >
+                        {num}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className={styles.mobileFilterSeparator} />
+                <div className={styles.mobileFilterBottom}>
+                  <button 
+                    className={styles.clearButton}
+                    onClick={handleWcsClear}
+                  >
+                    Apagar
+                  </button>
+                  <button 
+                    className={styles.applyButton}
+                    onClick={handleWcsApply}
+                  >
+                    Aplicar
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Estacionamento Filter Content */}
+            {activeMobileFilter === 'estacionamento' && (
+              <div className={styles.mobileFilterContent}>
+                <div className={styles.mobileFilterTop}>
+                  <div className={styles.mobileFilterTitle}>
+                    <p className={styles.mobileFilterTitleText}>Estacionamento</p>
+                    <button 
+                      className={styles.mobileCloseButton}
+                      onClick={() => setActiveMobileFilter(null)}
+                      aria-label="Close"
+                    >
+                      <X size={24} strokeWidth={2} color="#303030" />
+                    </button>
+                  </div>
+                  <div className={styles.numberOptions}>
+                    {([1, 2, 3, 4, '5+'] as NumberOption[]).map((num) => (
+                      <button
+                        key={num}
+                        className={`${styles.numberButton} ${
+                          selectedEstacionamento === num ? styles.numberButtonActive : ''
+                        }`}
+                        onClick={() => handleEstacionamentoSelect(num)}
+                      >
+                        {num}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className={styles.mobileFilterSeparator} />
+                <div className={styles.mobileFilterBottom}>
+                  <button 
+                    className={styles.clearButton}
+                    onClick={handleEstacionamentoClear}
+                  >
+                    Apagar
+                  </button>
+                  <button 
+                    className={styles.applyButton}
+                    onClick={handleEstacionamentoApply}
+                  >
+                    Aplicar
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Preço Filter Content */}
+            {activeMobileFilter === 'preco' && (
+              <div className={styles.mobileFilterContent}>
+                <div className={styles.mobileFilterTop}>
+                  <div className={styles.mobileFilterTitle}>
+                    <p className={styles.mobileFilterTitleText}>Preço</p>
+                    <button 
+                      className={styles.mobileCloseButton}
+                      onClick={() => setActiveMobileFilter(null)}
+                      aria-label="Close"
+                    >
+                      <X size={24} strokeWidth={2} color="#303030" />
+                    </button>
+                  </div>
+                  <div className={styles.priceInputs}>
+                    <div className={styles.priceInputGroup}>
+                      <label className={styles.priceLabel}>Mín</label>
+                      <input
+                        type="text"
+                        className={styles.priceInput}
+                        placeholder="Valor"
+                        value={precoMin}
+                        onChange={(e) => setPrecoMin(e.target.value)}
+                      />
+                    </div>
+                    <span className={styles.priceSeparator}>-</span>
+                    <div className={styles.priceInputGroup}>
+                      <label className={styles.priceLabel}>Máx</label>
+                      <input
+                        type="text"
+                        className={styles.priceInput}
+                        placeholder="Valor"
+                        value={precoMax}
+                        onChange={(e) => setPrecoMax(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.mobileFilterSeparator} />
+                <div className={styles.mobileFilterBottom}>
+                  <button 
+                    className={styles.clearButton}
+                    onClick={handlePrecoClear}
+                  >
+                    Apagar
+                  </button>
+                  <button 
+                    className={styles.applyButton}
+                    onClick={handlePrecoApply}
+                  >
+                    Aplicar
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )

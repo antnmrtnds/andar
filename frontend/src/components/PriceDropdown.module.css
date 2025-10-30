@@ -1,0 +1,256 @@
+/* Dropdown Container */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 1000;
+  min-width: 455px;
+  max-width: calc(100vw - 80px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownContent {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Top Section */
+.topSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--dark-gray);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+
+.closeButton:hover {
+  opacity: 0.7;
+}
+
+/* Price Inputs */
+.priceInputs {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 20px;
+  padding: 0px;
+  gap: 10px;
+}
+
+.priceInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 0 1 auto;
+}
+
+.priceLabel {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--dark-gray);
+  white-space: nowrap;
+}
+
+.priceInput {
+  border: 0.7px solid var(--medium-gray);
+  width: auto;
+  background: transparent;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--medium-gray);
+  white-space: nowrap;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.priceInput:focus {
+  border-color: var(--button-blue);
+  color: var(--dark-gray);
+}
+
+.priceInput::placeholder {
+  color: var(--medium-gray);
+}
+
+.priceSeparator {
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--medium-gray);
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+
+/* Separator */
+.separator {
+  width: 100%;
+  height: 0;
+  border-top: 0.3px solid var(--extra-light-gray);
+}
+
+/* Bottom Section */
+.bottomSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.clearButton {
+  background: transparent;
+  border: none;
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: var(--dark-gray);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.clearButton:hover {
+  opacity: 0.7;
+}
+
+.applyButton {
+  background: var(--button-blue);
+  border: none;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-family: var(--font-family-work-sans);
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-medium);
+  line-height: 24px;
+  color: white;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.applyButton:hover {
+  background: var(--button-blue);
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dropdown {
+    left: 50% !important;
+    transform: translateX(-50%);
+    min-width: 280px !important;
+    max-width: calc(100vw - 80px) !important;
+  }
+  
+  .dropdownContent {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .priceInputs {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  
+  .priceInputGroup {
+    min-width: 80px;
+    flex: 1;
+  }
+  
+  .priceInput {
+    padding: 4px 12px;
+    font-size: 12px;
+    min-width: 0;
+  }
+  
+  .priceLabel {
+    font-size: 12px;
+  }
+  
+  .priceSeparator {
+    font-size: 12px;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dropdown {
+    min-width: 250px !important;
+    max-width: calc(100vw - 60px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown {
+    min-width: 200px !important;
+    max-width: calc(100vw - 40px) !important;
+  }
+  
+  .dropdownContent {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .applyButton {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .clearButton {
+    font-size: 12px;
+  }
+}
+
