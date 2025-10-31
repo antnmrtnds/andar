@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { Menu, Search, SlidersHorizontal } from 'lucide-react';
 import styles from './Hero.module.css';
 
-const imgHeroDesktop = "http://localhost:3845/assets/a159946fa0dae3a8c507042fa5de958a2230bd73.png";
+// Modern luxury apartment building - high quality
+const imgHeroDesktop = "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=80";
 
 interface HeroProps {
   className?: string;

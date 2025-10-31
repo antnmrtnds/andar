@@ -1,0 +1,275 @@
+/* ListingHeader Container */
+.container {
+  background-color: #f0f0f0;
+  padding: 24px 200px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.breadcrumbLink,
+.breadcrumbCurrent {
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--color-text-body-light);
+  white-space: nowrap;
+}
+
+.breadcrumbLink {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbLink:hover {
+  color: var(--dark-gray);
+}
+
+.breadcrumbIcon {
+  color: var(--color-text-body-light);
+  flex-shrink: 0;
+}
+
+/* Content Wrapper (Name/Address + Actions) */
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Property Info Section */
+.propertyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+/* Property Name Row (with badge) */
+.propertyNameRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.propertyName {
+  font-family: var(--font-family-inter);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--dark-gray);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Verification Badge */
+.verificationBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verificationIcon {
+  color: var(--button-blue);
+  flex-shrink: 0;
+}
+
+.verificationText {
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--button-blue);
+  white-space: nowrap;
+}
+
+/* Property Address */
+.address {
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--dark-gray);
+  margin: 0;
+}
+
+/* Action Buttons Section */
+.actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.actionButton:hover {
+  opacity: 0.7;
+}
+
+.actionButton:active {
+  opacity: 0.5;
+}
+
+.actionIcon {
+  color: var(--dark-gray);
+  flex-shrink: 0;
+}
+
+.actionText {
+  font-family: var(--font-family-inter);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--dark-gray);
+  white-space: nowrap;
+}
+
+/* Responsive Design */
+
+/* Tablet (768px - 1200px) */
+@media (max-width: 1200px) {
+  .container {
+    padding: 24px 100px 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 24px 60px 40px;
+  }
+
+  .propertyName {
+    font-size: 28px;
+  }
+
+  .contentWrapper {
+    gap: 24px;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 24px 32px;
+    gap: 32px;
+  }
+
+  .breadcrumbs {
+    gap: 6px;
+  }
+
+  .breadcrumbLink,
+  .breadcrumbCurrent {
+    font-size: 14px;
+  }
+
+  .breadcrumbIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .contentWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .propertyNameRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .propertyName {
+    font-size: 24px;
+    line-height: 32px;
+    white-space: normal;
+  }
+
+  .verificationText {
+    font-size: 14px;
+  }
+
+  .verificationIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .address {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .actionIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .actionText {
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 16px 24px;
+    gap: 24px;
+  }
+
+  .breadcrumbs {
+    font-size: 12px;
+  }
+
+  .breadcrumbLink,
+  .breadcrumbCurrent {
+    font-size: 12px;
+  }
+
+  .propertyName {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .verificationBadge {
+    gap: 6px;
+  }
+
+  .verificationText {
+    font-size: 12px;
+  }
+
+  .address {
+    font-size: 13px;
+  }
+}
+

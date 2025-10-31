@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Send } from 'lucide-react';
 import styles from './Newsletter.module.css';
 
-const imgNewsletter = "http://localhost:3845/assets/aa54c2991bd98102f305f4d8b643dc1040a07497.png";
-const imgMag = "http://localhost:3845/assets/112c1332c4775280b8fad7737667f099d76b4a1a.svg";
+// Modern architectural building with newsletter theme
+const imgNewsletter = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80";
 
 interface NewsletterProps {
   className?: string;
@@ -64,7 +65,7 @@ export const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
                 className={styles.submitButton}
                 aria-label="Subscribe"
               >
-                <img alt="" className={styles.buttonIcon} src={imgMag} />
+                <Send size={20} color="white" />
               </button>
             </div>
           </div>

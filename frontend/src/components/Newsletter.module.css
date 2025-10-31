@@ -160,17 +160,16 @@
   -moz-appearance: none;
   appearance: none;
   box-shadow: none;
+  transition: background-color 0.2s ease;
 }
 
 .submitButton:hover {
   background-color: #2d6aff;
+  border-color: #2d6aff;
 }
 
-.buttonIcon {
-  display: block;
-  max-width: none;
-  width: 100%;
-  height: 100%;
+.submitButton svg {
+  flex-shrink: 0;
 }
 
 /* Responsive Design - Tablet */

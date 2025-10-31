@@ -1,13 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Send, Facebook, Instagram } from 'lucide-react';
 import styles from './Newsletter2.module.css';
-
-const imgMag = "http://localhost:3845/assets/112c1332c4775280b8fad7737667f099d76b4a1a.svg";
-const imgFacebook = "http://localhost:3845/assets/e39794e2aa75cc4d9c061f2f1685c482968eca29.svg";
-const imgInstagram1 = "http://localhost:3845/assets/404fd3e9050af5bc9e72c5c5602bd0f9fa485acd.svg";
-const imgInstagram2 = "http://localhost:3845/assets/2801cf594ee7b9f6c63d48574a783d1b8d778fdc.svg";
-const imgInstagram3 = "http://localhost:3845/assets/861213647a7204255b3b401b8c48712cdb7492bb.svg";
 
 interface CityData {
   name: string;
@@ -150,7 +145,7 @@ export const Newsletter2: React.FC<Newsletter2Props> = ({
                     className={styles.submitButton}
                     aria-label="Subscribe"
                   >
-                    <img alt="" className={styles.buttonIcon} src={imgMag} />
+                    <Send size={20} color="white" />
                   </button>
                 </div>
               </form>
@@ -162,16 +157,24 @@ export const Newsletter2: React.FC<Newsletter2Props> = ({
           {/* Bottom Section */}
           <div className={styles.bottomSection}>
             <div className={styles.socialIcons}>
-              <div className={styles.iconWrapper}>
-                <img alt="Facebook" className={styles.socialIcon} src={imgFacebook} />
-              </div>
-              <div className={styles.iconWrapper}>
-                <div className={styles.instagramIcon}>
-                  <img alt="" src={imgInstagram1} />
-                  <img alt="" src={imgInstagram2} />
-                  <img alt="" src={imgInstagram3} />
-                </div>
-              </div>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.iconWrapper}
+                aria-label="Facebook"
+              >
+                <Facebook size={24} color="var(--dark-gray)" />
+              </a>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.iconWrapper}
+                aria-label="Instagram"
+              >
+                <Instagram size={24} color="var(--dark-gray)" />
+              </a>
             </div>
             
             <p className={styles.poweredBy}>

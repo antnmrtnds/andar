@@ -40,6 +40,7 @@ a {
 
   /* Typography */
   --fontsize-headings-h1: 40px;
+  --fontsize-headings-h2: 32px;
   --fontsize-headings-h3: 20px;
   --fontsize-body-md: 16px;
   --fontsize-body-sm: 12px;
