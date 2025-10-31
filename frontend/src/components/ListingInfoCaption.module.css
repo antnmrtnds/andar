@@ -1,0 +1,238 @@
+.container {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 32px 0 0 0;
+  width: 100%;
+}
+
+/* Left side - Info section */
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Address & Price */
+.addressPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-family-work-sans);
+  font-weight: 400;
+  font-size: var(--fontsize-body-md);
+  color: var(--dark-gray);
+}
+
+.address {
+  line-height: 24px;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.price {
+  line-height: normal;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* Property Features */
+.features {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  width: 100%;
+}
+
+.feature {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.featureIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featureText {
+  font-family: var(--font-family-work-sans);
+  font-weight: 400;
+  font-size: var(--fontsize-body-md);
+  line-height: normal;
+  color: var(--dark-gray);
+  margin: 0;
+  white-space: pre;
+}
+
+/* Info Blocks */
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-family-work-sans);
+  font-weight: 400;
+  font-size: var(--fontsize-body-md);
+  line-height: normal;
+}
+
+.infoLabel {
+  color: var(--dark-gray);
+  margin: 0;
+  white-space: pre;
+}
+
+.infoValue {
+  color: var(--medium-gray);
+  margin: 0;
+  padding-left: 16px;
+  white-space: pre-wrap;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  color: var(--button-blue);
+  cursor: pointer;
+  font-family: var(--font-family-work-sans);
+  font-weight: 400;
+  font-size: var(--fontsize-body-md);
+  line-height: normal;
+  padding: 0;
+  padding-left: 16px;
+  text-align: left;
+  white-space: pre;
+}
+
+.linkButton:hover {
+  text-decoration: underline;
+}
+
+/* Right side - Companies section */
+.companies {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  overflow: hidden;
+  padding: 10px;
+  align-self: stretch;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.companyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  font-family: var(--font-family-work-sans);
+  font-weight: 400;
+  line-height: normal;
+}
+
+.companyName {
+  font-size: var(--fontsize-headings-h3);
+  color: var(--dark-gray);
+  margin: 0;
+  white-space: pre;
+}
+
+.companyRole {
+  font-size: var(--fontsize-body-md);
+  color: var(--color-text-body-light);
+  margin: 0;
+  white-space: pre;
+}
+
+.companyLogo {
+  height: 46px;
+  max-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.companyLogo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .features {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 0 0 0;
+  }
+
+  .topSection,
+  .bottomSection {
+    gap: 24px;
+  }
+
+  .features {
+    gap: 12px;
+  }
+
+  .feature {
+    gap: 8px;
+  }
+
+  .companies {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .addressPrice {
+    font-size: 14px;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .feature {
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,148 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  height: 96px;
+  margin: 0 auto;
+  padding: 0 200px;
+  background-color: var(--really-light-gray, #f4f4f4);
+  box-sizing: border-box;
+}
+
+.leftActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.moreInfoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background-color: var(--color-icons-default, #407cff);
+  border: none;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: var(--fontweight-regular);
+  font-size: var(--fontsize-body-md);
+  line-height: var(--line-height-body-sm);
+  color: var(--white, #ffffff);
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.moreInfoButton:hover {
+  background-color: #3569e6;
+}
+
+.moreInfoButton:active {
+  background-color: #2958cc;
+}
+
+.callButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  background-color: transparent;
+  border: 2px solid var(--color-icons-default, #407cff);
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-md);
+  line-height: var(--line-height-body-sm);
+  color: var(--color-text-headings-highlight, #407cff);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.callButton:hover {
+  background-color: rgba(64, 124, 255, 0.05);
+  border-color: #3569e6;
+  color: #3569e6;
+}
+
+.callButton:active {
+  background-color: rgba(64, 124, 255, 0.1);
+  border-color: #2958cc;
+  color: #2958cc;
+}
+
+.brochureButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: transparent;
+  border: 2px solid var(--color-text-body-light, #898989);
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: var(--fontweight-medium);
+  font-size: var(--fontsize-body-md);
+  line-height: var(--line-height-body-sm);
+  color: var(--medium-gray, #898989);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.brochureButton:hover {
+  background-color: rgba(137, 137, 137, 0.05);
+  border-color: #6f6f6f;
+  color: #6f6f6f;
+}
+
+.brochureButton:active {
+  background-color: rgba(137, 137, 137, 0.1);
+  border-color: #555555;
+  color: #555555;
+}
+
+/* Responsive design */
+@media (max-width: 1440px) {
+  .container {
+    padding: 0 100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .leftActions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .moreInfoButton,
+  .callButton,
+  .brochureButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .moreInfoButton,
+  .callButton,
+  .brochureButton {
+    font-size: 18px;
+    padding: 14px 20px;
+  }
+}
+
